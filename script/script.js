@@ -54,12 +54,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const typing = (event) => {
             const target = event.target;
             // console.log(event)
-            if (target.tagName === 'BUTTON'){ // тэг пишем ЗАГЛАВНЫМИ буквами
+            if (target.tagName === 'BUTTON'){ 
                 const contentButton = target.textContent.trim();
-                const buttons = [...keyboard.querySelectorAll('button')]/* 2е стоки выше ? почему не заглавными,
-                сразу переводим в массив, что бы исключить не нужные кнопки/
-                ... rest = для соединения отдельных значений в массив (почему нельзя без rest).
-                */.filter((elem) => elem.style.visibility !== 'hidden')
+                const buttons = [...keyboard.querySelectorAll('button')].filter((elem) => elem.style.visibility !== 'hidden')
                console.log(buttons)
                 if (contentButton === '⬅') { // сробатывание backspace
                     searchInput.value = searchInput.value.slice(0, length - 1); /*slice = удаляем 
@@ -107,20 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });     
             }
         })
-    // СПОСОБ 2 (меняем класс у li при нажатии)  
-    // учитываем что li может быть много в HTML, а мы не хотм им добавлять КЛАСС
-    //  Почему нельзя найти все ли и пербрать их  ??????????????????????
-    
-        // sidebarMenu.addEventListener('click', (event) => {
-        //     const sidebarButtons = sidebarMenu.querySelectorAll('li');
-        //     console.log(sidebarButtons)
-        //     let target = event.target;
-        //     console.log(event.target)
-        //     sidebarButtons.forEach((elem, i) => {
-        //         target = sidebarButtons;
-        //         console.log(target);
-        //     })            
-        // })
     }  
 
     // модальное окно
